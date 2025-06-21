@@ -1,0 +1,21 @@
+{
+  "name": "@repo/redis",
+  "module": "index.ts",
+  "type": "module",
+  "version": "1.0.0",
+  "description": "Redis client for Bun",
+  "main": "index.ts",
+  "private": true,
+  "exports":{
+     "./Client":"./index.ts"
+  },
+  "devDependencies": {
+    "@types/bun": "latest"
+  },
+  "peerDependencies": {
+    "typescript": "^5"
+  },
+  "dependencies": {
+    "redis": "^5.5.6"
+  }
+}

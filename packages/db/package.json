@@ -1,0 +1,27 @@
+{
+  "name": "@repo/db",
+  "module": "index.ts",
+  "type": "module",
+  "version": "1.0.0",
+  "main": "index.ts",
+  "exports": {
+    "./Client": "./index.ts"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "private": true,
+  "devDependencies": {
+    "@types/bun": "latest"
+  },
+  "peerDependencies": {
+    "typescript": "^5"
+  },
+  "dependencies": {
+    "@prisma/client": "^6.10.1",
+    "prisma": "^6.10.1"
+  }
+}
