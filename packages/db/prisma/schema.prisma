@@ -4,9 +4,9 @@
 // Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
 // Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
 
+//  output   = "../node_modules/@prisma/client"
 generator client {
   provider = "prisma-client-js"
-  output   = "../generated/prisma"
 }
 
 datasource db {
@@ -14,18 +14,35 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-
-
 model User {
-  id        String      @id @default(uuid())
-  email     String   @unique
+  id        String   @id @default(uuid())
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
+  projects  Project[]
 }
 
 model Project {
-  id          String      @id @default(uuid())
+  id          String    @id @default(uuid())
   description String?
-  createdAt   DateTime @default(now())
-  updatedAt   DateTime @updatedAt
+  createdAt   DateTime  @default(now())
+  updatedAt   DateTime  @updatedAt
+  prompts     Prompt[]  // renamed to plural for clarity
+  user        User  @relation(fields: [userId], references: [id])
+  userId      String
+}
+
+model Prompt {
+  id         String   @id @default(uuid())
+  content    String
+  createdAt  DateTime @default(now())
+  type       PromptType
+  updatedAt  DateTime @updatedAt
+  project    Project  @relation(fields: [projectId], references: [id])
+  projectId  String
+}
+
+
+enum PromptType{
+  USER
+  SYSTEM
 }

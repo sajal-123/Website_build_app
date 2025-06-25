@@ -3,12 +3,22 @@
   "module": "index.ts",
   "type": "module",
   "private": true,
+  "scripts": {
+    "start": "bun run server.ts"
+  },
   "devDependencies": {
-    "@types/bun": "latest",
+    "@repo/db": "*",
     "@repo/redis": "*",
-    "@repo/db": "*"
+    "@repo/middleware": "*",
+    "@types/bun": "latest"
   },
   "peerDependencies": {
     "typescript": "^5"
+  },
+  "dependencies": {
+    "@types/express": "^5.0.3",
+    "@types/jsonwebtoken": "^9.0.10",
+    "express": "^5.1.0",
+    "jsonwebtoken": "^9.0.2"
   }
 }

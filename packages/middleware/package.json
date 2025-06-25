@@ -1,22 +1,19 @@
 {
-  "name": "@repo/db",
+  "name": "@repo/middleware",
   "module": "index.ts",
   "type": "module",
   "version": "1.0.0",
-  "description": "Db client for Bun",
+  "description": "Auth client for Bun",
   "main": "index.ts",
   "private": true,
   "exports": {
-    "./Client": "./index.ts"
+    "./Client": "./index.ts",
+    "./types":"./types.ts"
   },
   "devDependencies": {
     "@types/bun": "latest"
   },
   "peerDependencies": {
     "typescript": "^5"
-  },
-  "dependencies": {
-    "@prisma/client": "^6.10.1",
-    "redis": "^5.5.6"
   }
 }
